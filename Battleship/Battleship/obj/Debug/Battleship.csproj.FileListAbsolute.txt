@@ -1,0 +1,10 @@
+C:\Users\anthonyjones\Documents\GitHub\Battleship\Battleship\Battleship\bin\Debug\Battleship.exe.config
+C:\Users\anthonyjones\Documents\GitHub\Battleship\Battleship\Battleship\bin\Debug\Battleship.exe
+C:\Users\anthonyjones\Documents\GitHub\Battleship\Battleship\Battleship\bin\Debug\Battleship.pdb
+C:\Users\anthonyjones\Documents\GitHub\Battleship\Battleship\Battleship\obj\Debug\Battleship.csprojResolveAssemblyReference.cache
+C:\Users\anthonyjones\Documents\GitHub\Battleship\Battleship\Battleship\obj\Debug\Battleship.exe
+C:\Users\anthonyjones\Documents\GitHub\Battleship\Battleship\Battleship\obj\Debug\Battleship.pdb
+C:\Users\anthonyjones\Documents\GitHub\Battleship\Battleship\Battleship\bin\Debug\EntityFramework.dll
+C:\Users\anthonyjones\Documents\GitHub\Battleship\Battleship\Battleship\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\anthonyjones\Documents\GitHub\Battleship\Battleship\Battleship\bin\Debug\EntityFramework.xml
+C:\Users\anthonyjones\Documents\GitHub\Battleship\Battleship\Battleship\bin\Debug\EntityFramework.SqlServer.xml
