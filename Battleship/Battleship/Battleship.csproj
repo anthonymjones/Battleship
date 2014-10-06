@@ -52,7 +52,22 @@
   <ItemGroup>
     <Compile Include="Grid.cs" />
     <Compile Include="HighScore.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>HighScoresdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HighScoresdb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HighScoresdb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HighScoresdb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HighScoresdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HighScoresdb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HighScoresdb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -80,6 +95,23 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="HighScoresdb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HighScoresdb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="HighScoresdb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HighScoresdb.edmx</DependentUpon>
+      <LastGenOutput>HighScoresdb.Context.cs</LastGenOutput>
+    </None>
+    <None Include="HighScoresdb.edmx.diagram">
+      <DependentUpon>HighScoresdb.edmx</DependentUpon>
+    </None>
+    <None Include="HighScoresdb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HighScoresdb.edmx</DependentUpon>
+      <LastGenOutput>HighScoresdb.cs</LastGenOutput>
+    </None>
     <None Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

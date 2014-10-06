@@ -24,15 +24,19 @@ namespace Battleship
             //initilize ocean
             this.Ocean = new Point[10, 10];
             //fill each cell with a point
-            for (int x = 0; x <= 9; x++)
+            //for each y
+            for (int y = 0; y <= 9; y++)
             {
-                for (int y = 0; y <= 9; y++)
+                //for each x
+                for (int x = 0; x <= 9; x++)
                 {
+                    //fill the point with an Empty Status
                     this.Ocean[x, y] = new Point(x, y, Point.PointStatus.Empty);
                 }
             }
             //initialize and fill list of ships with each type of ship
-            this.ListOfShips = new List<Ship>() { new Ship(Ship.ShipType.Carrier), new Ship(Ship.ShipType.Battleship), new Ship(Ship.ShipType.Cruiser), new Ship(Ship.ShipType.Submarine), new Ship(Ship.ShipType.Minesweeper) };
+            this.ListOfShips = new List<Ship>() 
+            { new Ship(Ship.ShipType.Carrier), new Ship(Ship.ShipType.Battleship), new Ship(Ship.ShipType.Cruiser), new Ship(Ship.ShipType.Submarine), new Ship(Ship.ShipType.Minesweeper) };
             //place each ship on the grid
             PlaceShip(this.ListOfShips[0], PlaceShipDirection.Horizontal, 0,2 );
             PlaceShip(this.ListOfShips[1], PlaceShipDirection.Vertical, 9,3 );
@@ -44,7 +48,7 @@ namespace Battleship
         //Methods and Functions
        public void PlaceShip(Ship shipToPlace, PlaceShipDirection direction, int startX, int startY)
         {
-           //for the length of the ship being currently placed
+           //loop for the length of the ship being currently placed
             for (int i = 0; i < shipToPlace.Length; i++)
             {
                 //add the shipToPlace to the occupied points 
@@ -92,6 +96,7 @@ namespace Battleship
 
                 for (int x = 0; x <= 9; x++)
                 {
+                    //for each column (x)
                     switch (this.Ocean[x, y].Status)
                     {
                         case Point.PointStatus.Empty: Console.Write(" [ ]");
@@ -136,7 +141,7 @@ namespace Battleship
         public void PlayGame()
         {
             //while not all ships are destroyed
-            while(!this.AllShipsDestroyed)
+            while(!AllShipsDestroyed)
             {
                 //change the console window title
                 Console.Title = "BattleShip";
@@ -202,54 +207,55 @@ namespace Battleship
                 DisplayOcean();
                 Console.WriteLine();
                 //player found all ships, tell them
-                Console.WriteLine(" You Win!! It took {0} rounds", CombatRound);
+                Console.WriteLine(" You Win!! It took {0} rounds.", CombatRound);
             //game over
-            System.Threading.Thread.Sleep(1500);
-            AddHighScore(CombatRound);
-            DisplayHighScores();
+                Console.ReadKey();
+            //System.Threading.Thread.Sleep(1500);
+          //  AddHighScore(CombatRound);
+          //  DisplayHighScores();
         }
-        static void AddHighScore(int playerScore)
-        {
-            //get the player name for high scores
-            Console.Write(" Your name: ");
-            string playerName = Console.ReadLine();
+      //  static void AddHighScore(int playerScore)
+        //{
+        //    //get the player name for high scores
+        //    Console.Write(" Your name: ");
+        //    string playerName = Console.ReadLine();
 
-            //create a gateway to the database
-            AnthonyEntities db = new AnthonyEntities();
+        //    //create a gateway to the database
+        //    spAnthonyEntities db = new spAnthonyEntities();
 
-            //create a new highscore object
-            HighScore newHighScore = new HighScore();
-            newHighScore.DateCreated = DateTime.Now;
-            newHighScore.Game = "Battleship";
-            newHighScore.Name = playerName;
-            newHighScore.Score = playerScore;
+        //    //create a new highscore object
+        //    HighScore newHighScore = new HighScore();
+        //    newHighScore.DateCreated = DateTime.Now;
+        //    newHighScore.Game = "Battleship";
+        //    newHighScore.Name = playerName;
+        //    newHighScore.Score = playerScore;
 
-            //add to the database
-            db.HighScores.Add(newHighScore);
+        //    //add to the database
+        //    db.HighScores.Add(newHighScore);
 
-            //save our changes
-            db.SaveChanges();
-        }
-        static void DisplayHighScores()
-        {
-            Console.SetWindowSize(40, 30);
-            //clear the console
-            Console.Clear();
-            //Write the High Score Text
-            Console.WriteLine();
-            Console.WriteLine("       Battleship High Scores");
-            Console.WriteLine("    *****************************");
+        //    //save our changes
+        //    db.SaveChanges();
+        //}
+      ////  static void DisplayHighScores()
+      //  {
+      //      Console.SetWindowSize(40, 30);
+      //      //clear the console
+      //      Console.Clear();
+      //      //Write the High Score Text
+      //      Console.WriteLine();
+      //      Console.WriteLine("       Battleship High Scores");
+      //      Console.WriteLine("    *****************************");
 
-            //create a new connection to the db
-            AnthonyEntities db = new AnthonyEntities();
-            //get the high score list
-            List<HighScore> highScoreList = db.HighScores.Where(x => x.Game == "Battleship").OrderBy(x => x.Score).Take(10).ToList();
+      //      //create a new connection to the db
+      //      spAnthonyEntities db = new spAnthonyEntities();
+      //      //get the high score list
+      //      List<HighScore> highScoreList = db.HighScores.Where(x => x.Game == "Battleship").OrderBy(x => x.Score).Take(10).ToList();
 
-            foreach (HighScore highScore in highScoreList)
-            {
-                Console.WriteLine("    {0}. {1} - {2} on {3}", highScoreList.IndexOf(highScore) + 1, highScore.Name, highScore.Score, highScore.DateCreated.Value.ToShortDateString());
-            }
-            Console.ReadKey();
-        }
+      //      foreach (HighScore highScore in highScoreList)
+      //      {
+      //          Console.WriteLine("    {0}. {1} - {2} on {3}", highScoreList.IndexOf(highScore) + 1, highScore.Name, highScore.Score, highScore.DateCreated.Value.ToShortDateString());
+      //      }
+      //      Console.ReadKey();
+      //  }
     }
 }
